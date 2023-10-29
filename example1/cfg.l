@@ -3,9 +3,9 @@
 %}
 
 %%
-"a" {return ZERO;}
-"b" {return ONE;}
-"c" {return TWO;}
+"a" {return A;}
+"b" {return B;}
+"c" {return C;}
 [\n] {return NL;}
 . ;
 %%

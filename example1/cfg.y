@@ -8,18 +8,17 @@
 	void yyerror();
 %}
 
-%token ONE TWO ZERO NL
+%token A B C NL
 
 %%
 str0 : str1 str2 nl
-    | /* epsilon */ { }
+    | { }
     ;
-str1 : ZERO str1 ONE
-    | /* epsilon */ { }
+str1 : A str1 B
+    | { }
     ;
-str2 : ONE str2 TWO
-    | str2 TWO
-    | /* epsilon */ { }
+str2 : C str2
+    | { }
     ;
 nl : NL {return(0);} 
    ;

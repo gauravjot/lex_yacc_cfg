@@ -121,9 +121,9 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    ONE = 258,                     /* ONE  */
-    TWO = 259,                     /* TWO  */
-    ZERO = 260,                    /* ZERO  */
+    A = 258,                       /* A  */
+    B = 259,                       /* B  */
+    C = 260,                       /* C  */
     NL = 261                       /* NL  */
   };
   typedef enum yytokentype yytoken_kind_t;
@@ -133,9 +133,9 @@ extern int yydebug;
 #define YYEOF 0
 #define YYerror 256
 #define YYUNDEF 257
-#define ONE 258
-#define TWO 259
-#define ZERO 260
+#define A 258
+#define B 259
+#define C 260
 #define NL 261
 
 /* Value type.  */
@@ -160,9 +160,9 @@ enum yysymbol_kind_t
   YYSYMBOL_YYEOF = 0,                      /* "end of file"  */
   YYSYMBOL_YYerror = 1,                    /* error  */
   YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
-  YYSYMBOL_ONE = 3,                        /* ONE  */
-  YYSYMBOL_TWO = 4,                        /* TWO  */
-  YYSYMBOL_ZERO = 5,                       /* ZERO  */
+  YYSYMBOL_A = 3,                          /* A  */
+  YYSYMBOL_B = 4,                          /* B  */
+  YYSYMBOL_C = 5,                          /* C  */
   YYSYMBOL_NL = 6,                         /* NL  */
   YYSYMBOL_YYACCEPT = 7,                   /* $accept  */
   YYSYMBOL_str0 = 8,                       /* str0  */
@@ -496,16 +496,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  5
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   12
+#define YYLAST   10
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  7
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  5
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  9
+#define YYNRULES  8
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  14
+#define YYNSTATES  12
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   261
@@ -555,7 +555,7 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    14,    14,    15,    17,    18,    20,    21,    22,    24
+       0,    14,    14,    15,    17,    18,    20,    21,    23
 };
 #endif
 
@@ -571,8 +571,8 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "\"end of file\"", "error", "\"invalid token\"", "ONE", "TWO", "ZERO",
-  "NL", "$accept", "str0", "str1", "str2", "nl", YY_NULLPTR
+  "\"end of file\"", "error", "\"invalid token\"", "A", "B", "C", "NL",
+  "$accept", "str0", "str1", "str2", "nl", YY_NULLPTR
 };
 
 static const char *
@@ -582,7 +582,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-4)
+#define YYPACT_NINF (-3)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -596,8 +596,8 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-       0,    -1,     2,     3,     4,    -4,     3,    -3,    -4,     5,
-      -4,    -4,    -4,    -4
+       0,    -2,     2,    -1,     1,    -3,    -1,     3,    -3,    -3,
+      -3,    -3
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -605,20 +605,20 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       5,     5,     0,     8,     0,     1,     8,     0,     4,     0,
-       7,     9,     2,     6
+       5,     5,     0,     7,     0,     1,     7,     0,     4,     6,
+       8,     2
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -4,    -4,     7,     6,    -4
+      -3,    -3,     5,     4,    -3
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     2,     3,     7,    12
+       0,     2,     3,     7,    11
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -626,34 +626,34 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      -3,    10,     5,    11,     1,     1,     6,     8,     4,    13,
-       0,     0,     9
+      -3,     1,     5,     1,     6,     8,     4,     0,     0,    10,
+       9
 };
 
 static const yytype_int8 yycheck[] =
 {
-       0,     4,     0,     6,     5,     5,     3,     3,     1,     4,
-      -1,    -1,     6
+       0,     3,     0,     3,     5,     4,     1,    -1,    -1,     6,
+       6
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     5,     8,     9,     9,     0,     3,    10,     3,    10,
-       4,     6,    11,     4
+       0,     3,     8,     9,     9,     0,     5,    10,     4,    10,
+       6,    11
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,     7,     8,     8,     9,     9,    10,    10,    10,    11
+       0,     7,     8,     8,     9,     9,    10,    10,    11
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     3,     0,     3,     0,     3,     2,     0,     1
+       0,     2,     3,     0,     3,     0,     2,     0,     1
 };
 
 
@@ -1118,24 +1118,24 @@ yyreduce:
     {
   case 3: /* str0: %empty  */
 #line 15 "cfg.y"
-                    { }
+      { }
 #line 1123 "y.tab.c"
     break;
 
   case 5: /* str1: %empty  */
 #line 18 "cfg.y"
-                    { }
+      { }
 #line 1129 "y.tab.c"
     break;
 
-  case 8: /* str2: %empty  */
-#line 22 "cfg.y"
-                    { }
+  case 7: /* str2: %empty  */
+#line 21 "cfg.y"
+      { }
 #line 1135 "y.tab.c"
     break;
 
-  case 9: /* nl: NL  */
-#line 24 "cfg.y"
+  case 8: /* nl: NL  */
+#line 23 "cfg.y"
         {return(0);}
 #line 1141 "y.tab.c"
     break;
@@ -1334,7 +1334,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 26 "cfg.y"
+#line 25 "cfg.y"
 
 
 void main()
