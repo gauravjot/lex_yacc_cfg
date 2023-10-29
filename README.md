@@ -5,6 +5,7 @@ This accepts a language which contains same number of a's and b's, and any numbe
 Example accepted strings:
 
 - ab
+- c
 - aabbc
 - aaaabbbbcccc
 
@@ -12,7 +13,6 @@ Examples of invalid strings:
 
 - a
 - b
-- c
 - caabb
 
 ## How to compile?
