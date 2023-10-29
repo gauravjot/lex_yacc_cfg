@@ -14,3 +14,25 @@ Examples of invalid strings:
 - b
 - c
 - caabb
+
+## How to compile?
+
+Install `gcc`, `flex` and `bison` packages in linux.
+
+```
+sudo apt install gcc flex bison
+```
+
+Compile commands in this order:
+
+```
+lex cfg.l
+yacc -d cfg.y
+cc lex.yy.c y.tab.c -ll
+```
+
+Run the compiled application like this:
+
+```
+.\a.out
+```
